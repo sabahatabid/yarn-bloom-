@@ -112,7 +112,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone size={16} className="text-[#d4838e] mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm text-[#c4a898]">+92 300 0000000</p>
+                  <a href="tel:+923000000000" className="text-sm text-[#c4a898] hover:text-[#f2c4ce] transition-colors">+92 300 0000000</a>
                   <p className="text-xs text-[#8c7070]">WhatsApp available</p>
                 </div>
               </li>
@@ -148,7 +148,7 @@ export default function Footer() {
             <Heart size={10} className="inline text-[#d4838e] fill-current" /> in Pakistan.
           </p>
           <p className="text-xs text-[#8c7070]">
-            Cash on Delivery &middot; Bank Transfer &middot; Secure Packaging
+            Cash on Delivery &middot; Secure Packaging
           </p>
         </div>
       </div>

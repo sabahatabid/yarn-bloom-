@@ -197,7 +197,12 @@ export default function Navbar() {
               {/* Wishlist */}
               <Link
                 href="/account/wishlist"
-                className="p-2.5 rounded-xl text-[#5a4040] hover:bg-[#fbe8ec] hover:text-[#d4838e] transition-all"
+                className={cn(
+                  'p-2.5 rounded-xl transition-all',
+                  pathname === '/account/wishlist'
+                    ? 'bg-[#fbe8ec] text-[#d4838e]'
+                    : 'text-[#5a4040] hover:bg-[#fbe8ec] hover:text-[#d4838e]'
+                )}
                 aria-label="Wishlist"
               >
                 <Heart size={20} />
@@ -220,7 +225,12 @@ export default function Navbar() {
               {/* Account */}
               <Link
                 href="/account"
-                className="hidden sm:flex p-2.5 rounded-xl text-[#5a4040] hover:bg-[#fbe8ec] hover:text-[#d4838e] transition-all"
+                className={cn(
+                  'hidden sm:flex p-2.5 rounded-xl transition-all',
+                  pathname === '/account'
+                    ? 'bg-[#fbe8ec] text-[#d4838e]'
+                    : 'text-[#5a4040] hover:bg-[#fbe8ec] hover:text-[#d4838e]'
+                )}
                 aria-label="Account"
               >
                 <User size={20} />

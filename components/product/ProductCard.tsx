@@ -10,17 +10,19 @@ import { formatPrice } from '@/lib/utils';
 import StarRating from '@/components/ui/StarRating';
 import Badge from '@/components/ui/Badge';
 import { useCartStore } from '@/lib/store/cartStore';
+import { useWishlistStore } from '@/lib/store/wishlistStore';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const [wishlisted, setWishlisted] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [justAdded, setJustAdded] = useState(false);
 
   const addItem = useCartStore((s) => s.addItem);
+  const wishlisted = useWishlistStore((s) => s.items.some((item) => item.id === product.id));
+  const toggleWishlist = useWishlistStore((s) => s.toggleItem);
 
   const discountPercent =
     product.sale_price
@@ -99,7 +101,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            setWishlisted((w) => !w);
+            toggleWishlist(product);
           }}
           className={`wishlist-btn ${wishlisted ? 'active' : ''}`}
           aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
